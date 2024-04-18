@@ -4,9 +4,9 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
 interface SearchExercisesProps {
-  setExercises: object;
-  bodyPart: object;
-  setBodyPart: object;
+  setExercises: string;
+  bodyPart: string;
+  setBodyPart: string;
 }
 
 const SearchExercises: React.FC<SearchExercisesProps> = ({
@@ -25,8 +25,8 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
       );
 
       setBodyParts(["all", ...bodyPartsData]);
-      fetchExercisesData();
     };
+    fetchExercisesData();
   }, []);
 
   const handleSearch = async () => {
@@ -42,8 +42,9 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
           exercise.equipment.toLowerCase().includes(search) ||
           exercise.bodyPart.toLowerCase().includes(search),
       );
-      setExercises("");
+      setSearch("");
       setExercises(searchedExercises);
+      console.log("setExercises", setExercises);
     }
   };
 
@@ -88,11 +89,12 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
           Search
         </Button>
       </Box>
-      <Box sx={{ position: "relative", width: "10%", p: "20px" }}>
+      <Box sx={{ position: "relative", width: "100%", p: "20px" }}>
         <HorizontalScrollbar
           data={bodyParts}
-          bodyPart={bodyPart}
+          bodyParts
           setBodyPart={setBodyPart}
+          bodyPart={bodyPart}
         />
       </Box>
     </Stack>
