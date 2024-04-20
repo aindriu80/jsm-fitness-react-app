@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
-import BodyPart from "./BodyPart";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import { useContext } from "react";
-import LeftArrowIcon from "../assets/icons/left-arrow.png";
-import RightArrowIcon from "../assets/icons/right-arrow.png";
+import { Box, Typography } from '@mui/material';
+import BodyPart from './BodyPart';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import { useContext } from 'react';
+import LeftArrowIcon from '../assets/icons/left-arrow.png';
+import RightArrowIcon from '../assets/icons/right-arrow.png';
 
 interface Item {
   id: string | number;
@@ -46,11 +46,11 @@ const HorizontalScrollbar: React.FC<HorizontalScrollbarProps> = ({
       {data.map((item: Item) => (
         <Box
           key={item.id || item}
-          itemId={item.id || item}
+          itemID={item.id || item}
           title={item.id || item}
           m="0 40px"
         >
-          <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} />
+          <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
         </Box>
       ))}
     </ScrollMenu>

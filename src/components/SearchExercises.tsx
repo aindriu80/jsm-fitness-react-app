@@ -6,7 +6,7 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 interface SearchExercisesProps {
   setExercises: Array;
   bodyPart: string;
-  setBodyPart: string;
+  setBodyPart: Array;
 }
 
 const SearchExercises: React.FC<SearchExercisesProps> = ({
@@ -26,7 +26,6 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
 
       setBodyParts(['all', ...bodyPartsData]);
     };
-    console.log('fetchExData', fetchExercisesData);
     fetchExercisesData();
   }, []);
 
@@ -45,7 +44,6 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
       );
       setSearch('');
       setExercises(searchedExercises);
-      console.log('setExercises', setExercises);
     }
   };
 
@@ -93,9 +91,8 @@ const SearchExercises: React.FC<SearchExercisesProps> = ({
       <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
         <HorizontalScrollbar
           data={bodyParts}
-          bodyParts
-          setBodyPart={setBodyPart}
           bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
         />
       </Box>
     </Stack>
